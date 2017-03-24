@@ -1,24 +1,35 @@
-{% load staticfiles %}
+{% load static %}
 <html>
     <head>
         <title>防災研究所　部門別　業績データ</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
     </head>
     <body>
-        <div class="page-header">
+
+
+      <div class="page-header">
+<!--
+        <div class="logo" style="position:relative; top:25px; right:-20px;">
+            <img src={% static 'dpri.jpeg' %} alt="My test image"
+                  width="70" heigth="60" >
+        </div>
+-->
+
           {% if user.is_authenticated %}
-            <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon-plus"></span></a>
+            <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
           {% endif %}
             <h1><a href="/">DPRI-Performance data</a></h1>
+
         </div>
         <div class="content container">
             <div class="row">
                 <div class="col-md-8">
                 {% block content %}
                 {% endblock %}
+                   </div>
                 </div>
             </div>
         </div>
